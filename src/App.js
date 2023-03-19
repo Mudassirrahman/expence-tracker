@@ -570,86 +570,86 @@
   //           onChange={(e) => set
 
 
-  import React, { useState, useEffect } from "react";
-  import "./App.css";
+  // import React, { useState, useEffect } from "react";
+  // import "./App.css";
   
-  function App() {
-    const [transactions, setTransactions] = useState([]);
-    const [transactionType, setTransactionType] = useState("");
-    const [transactionDate, setTransactionDate] = useState("");
+  // function App() {
+  //   const [transactions, setTransactions] = useState([]);
+  //   const [transactionType, setTransactionType] = useState("");
+  //   const [transactionDate, setTransactionDate] = useState("");
   
-    const [incomeAmount, setIncomeAmount] = useState("");
-    const [incomeDescription, setIncomeDescription] = useState("");
-    const [incomeDate, setIncomeDate] = useState("");
+  //   const [incomeAmount, setIncomeAmount] = useState("");
+  //   const [incomeDescription, setIncomeDescription] = useState("");
+  //   const [incomeDate, setIncomeDate] = useState("");
   
-    const [outcomeAmount, setOutcomeAmount] = useState("");
-    const [outcomeDescription, setOutcomeDescription] = useState("");
-    const [outcomeDate, setOutcomeDate] = useState("");
+  //   const [outcomeAmount, setOutcomeAmount] = useState("");
+  //   const [outcomeDescription, setOutcomeDescription] = useState("");
+  //   const [outcomeDate, setOutcomeDate] = useState("");
   
-    // Load transactions from local storage on initial render
-    useEffect(() => {
-      const savedTransactions = JSON.parse(localStorage.getItem("transactions"));
-      if (savedTransactions) {
-        setTransactions(savedTransactions);
-      }
-    }, []);
+  //   // Load transactions from local storage on initial render
+  //   useEffect(() => {
+  //     const savedTransactions = JSON.parse(localStorage.getItem("transactions"));
+  //     if (savedTransactions) {
+  //       setTransactions(savedTransactions);
+  //     }
+  //   }, []);
   
-    // Save transactions to local storage when the transactions state changes
-    useEffect(() => {
-      localStorage.setItem("transactions", JSON.stringify(transactions));
-    }, [transactions]);
+  //   // Save transactions to local storage when the transactions state changes
+  //   useEffect(() => {
+  //     localStorage.setItem("transactions", JSON.stringify(transactions));
+  //   }, [transactions]);
   
-    const handleAddIncome = () => {
-      const newIncome = {
-        date: incomeDate,
-        description: incomeDescription,
-        amount: parseFloat(incomeAmount),
-        type: "income",
-      };
-      setTransactions([...transactions, newIncome]);
-      setIncomeAmount("");
-      setIncomeDescription("");
-      setIncomeDate("");
-    };
+  //   const handleAddIncome = () => {
+  //     const newIncome = {
+  //       date: incomeDate,
+  //       description: incomeDescription,
+  //       amount: parseFloat(incomeAmount),
+  //       type: "income",
+  //     };
+  //     setTransactions([...transactions, newIncome]);
+  //     setIncomeAmount("");
+  //     setIncomeDescription("");
+  //     setIncomeDate("");
+  //   };
   
-    const handleAddOutcome = () => {
-      const newOutcome = {
-        date: outcomeDate,
-        description: outcomeDescription,
-        amount: parseFloat(outcomeAmount),
-        type: "outcome",
-      };
-      setTransactions([...transactions, newOutcome]);
-      setOutcomeAmount("");
-      setOutcomeDescription("");
-      setOutcomeDate("");
-    };
+  //   const handleAddOutcome = () => {
+  //     const newOutcome = {
+  //       date: outcomeDate,
+  //       description: outcomeDescription,
+  //       amount: parseFloat(outcomeAmount),
+  //       type: "outcome",
+  //     };
+  //     setTransactions([...transactions, newOutcome]);
+  //     setOutcomeAmount("");
+  //     setOutcomeDescription("");
+  //     setOutcomeDate("");
+  //   };
   
-    const handleFilterTransactions = () => {
-      const filteredTransactions = transactions.filter((transaction) => {
-        if (transactionType && transactionType !== transaction.type) {
-          return false;
-        }
-        if (transactionDate && transactionDate !== transaction.date) {
-          return false;
-        }
-        return true;
-      });
-      setTransactions(filteredTransactions);
-    };
+  //   const handleFilterTransactions = () => {
+  //     const filteredTransactions = transactions.filter((transaction) => {
+  //       if (transactionType && transactionType !== transaction.type) {
+  //         return false;
+  //       }
+  //       if (transactionDate && transactionDate !== transaction.date) {
+  //         return false;
+  //       }
+  //       return true;
+  //     });
+  //     setTransactions(filteredTransactions);
+  //   };
   
-    const getTotal = (type) => {
-      const filteredTransactions = transactions.filter(
-        (transaction) => transaction.type === type
-      );
-      return filteredTransactions.reduce((total, transaction) => {
-        return total + transaction.amount;
-      }, 0);
-    };
+  //   const getTotal = (type) => {
+  //     const filteredTransactions = transactions.filter(
+  //       (transaction) => transaction.type === type
+  //     );
+  //     return filteredTransactions.reduce((total, transaction) => {
+  //       return total + transaction.amount;
+  //     }, 0);
+  //   };
   
-    const incomeTotal = getTotal("income");
-    const outcomeTotal = getTotal("outcome");
-    const balanceTotal = incomeTotal - outcomeTotal;
+  //   const incomeTotal = getTotal("income");
+  //   const outcomeTotal = getTotal("outcome");
+  //   const balanceTotal = incomeTotal - outcomeTotal;
 
   // return (
   //   <>
@@ -748,10 +748,194 @@
   //     </div>
   //   </>
   // );
+  // return (
+  //   <div className="App">
+  //     <h1>Transaction Tracker</h1>
+
+  //     <h2>Add Income</h2>
+  //     <form onSubmit={(e) => { e.preventDefault(); handleAddIncome(); }}>
+  //       <label>
+  //         Date:
+  //         <input type="text" value={incomeDate} onChange={(e) => setIncomeDate(e.target.value)} />
+  //       </label>
+  //       <br />
+  //       <label>
+  //         Description:
+  //         <input type="text" value={incomeDescription} onChange={(e) => setIncomeDescription(e.target.value)} />
+  //       </label>
+  //       <br />
+  //       <label>
+  //         Amount:
+  //         <input type="text" value={incomeAmount} onChange={(e) => setIncomeAmount(e.target.value)} />
+  //       </label>
+  //       <br />
+  //       <button type="submit">Add Income</button>
+  //     </form>
+
+  //     <h2>Add Outcome</h2>
+  //     <form onSubmit={(e) => { e.preventDefault(); handleAddOutcome(); }}>
+  //       <label>
+  //         Date:
+  //         <input type="text" value={outcomeDate} onChange={(e) => setOutcomeDate(e.target.value)} />
+  //       </label>
+  //       <br />
+  //       <label>
+  //         Description:
+  //         <input type="text" value={outcomeDescription} onChange={(e) => setOutcomeDescription(e.target.value)} />
+  //       </label>
+  //       <br />
+  //       <label>
+  //         Amount:
+  //         <input type="text" value={outcomeAmount} onChange={(e) => setOutcomeAmount(e.target.value)} />
+  //       </label>
+  //       <br />
+  //       <button type="submit">Add Outcome</button>
+  //     </form>
+
+  //     <h2>Filter Transactions</h2>
+  //     <label>
+  //       Type:
+  //       <select value={transactionType} onChange={(e) => setTransactionType(e.target.value)}>
+  //         <option value="">All</option>
+  //         <option value="income">Income</option>
+  //         <option value="outcome">Outcome</option>
+  //       </select>
+  //     </label>
+  //     <br />
+  //     <label>
+  //       Date:
+  //       <input type="text" value={transactionDate} onChange={(e) => setTransactionDate(e.target.value)} />
+  //     </label>
+  //     <br />
+  //     <button onClick={handleFilterTransactions}>Filter</button>
+
+  //     <h2>Transactions</h2>
+  //     <table>
+  //       <thead>
+  //         <tr>
+  //           <th>Date</th>
+  //           <th>Description</th>
+  //           <th>Amount</th>
+  //           <th>Type</th>
+  //         </tr>
+  //       </thead>
+  //       <tbody>
+  //         {transactions.map((transaction, index) => (
+  //           <tr key={index}>
+  //             <td>{transaction.date}</td>
+  //             <td>{transaction.description}</td>
+  //             <td>{transaction.amount}</td>
+  //             <td>{transaction.type}</td>
+  //           </tr>
+  //         ))}
+  //       </tbody>
+  //     </table>
+
+  //     <h2>Summary</h2>
+  //     <p>Income Total: {incomeTotal}</p>
+  //     <p>Outcome Total: {outcomeTotal}</p>
+  //     <p>Balance: {balanceTotal}</p>
+  //   </div>
+  // );
+
+  //           }
+  //           export default App;  
+
+
+
+  import { useState, useEffect } from "react";
+  import "./App.css";
+
+function App() {
+  const [incomeDate, setIncomeDate] = useState("");
+  const [incomeDescription, setIncomeDescription] = useState("");
+  const [incomeAmount, setIncomeAmount] = useState("");
+  const [outcomeDate, setOutcomeDate] = useState("");
+  const [outcomeDescription, setOutcomeDescription] = useState("");
+  const [outcomeAmount, setOutcomeAmount] = useState("");
+  const [transactions, setTransactions] = useState([]);
+  const [transactionType, setTransactionType] = useState("");
+  const [transactionDate, setTransactionDate] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  
+  useEffect(() => {
+    const filteredTransactions = transactions.filter(transaction => {
+      if (!searchQuery) {
+        return true;
+      } else {
+        const dateMatch = transaction.date.includes(searchQuery);
+        const descriptionMatch = transaction.description.toLowerCase().includes(searchQuery.toLowerCase());
+        const amountMatch = transaction.amount.includes(searchQuery);
+        const typeMatch = transaction.type.toLowerCase().includes(searchQuery.toLowerCase());
+        return dateMatch || descriptionMatch || amountMatch || typeMatch;
+      }
+    });
+    setFilteredTransactions(filteredTransactions);
+  }, [transactions, searchQuery]);
+
+  const handleAddIncome = () => {
+    if (!incomeDate || !incomeDescription || !incomeAmount) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    const newTransaction = {
+      date: incomeDate,
+      description: incomeDescription,
+      amount: incomeAmount,
+      type: "income",
+    };
+
+    setTransactions([...transactions, newTransaction]);
+    setIncomeDate("");
+    setIncomeDescription("");
+    setIncomeAmount("");
+  };
+
+  const handleAddOutcome = () => {
+    if (!outcomeDate || !outcomeDescription || !outcomeAmount) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    const newTransaction = {
+      date: outcomeDate,
+      description: outcomeDescription,
+      amount: outcomeAmount,
+      type: "outcome",
+    };
+
+    setTransactions([...transactions, newTransaction]);
+    setOutcomeDate("");
+    setOutcomeDescription("");
+    setOutcomeAmount("");
+  };
+
+  const handleFilterTransactions = () => {
+    const filteredTransactions = transactions.filter(transaction => {
+      const typeMatch = !transactionType || transaction.type === transactionType;
+      const dateMatch = !transactionDate || transaction.date.includes(transactionDate);
+      return typeMatch && dateMatch;
+    });
+    setFilteredTransactions(filteredTransactions);
+  };
+
+  const [filteredTransactions, setFilteredTransactions] = useState(transactions);
+
+  const incomeTotal = filteredTransactions
+    .filter((transaction) => transaction.type === "income")
+    .reduce((acc, transaction) => acc + parseInt(transaction.amount), 0);
+
+  const outcomeTotal = filteredTransactions
+    .filter((transaction) => transaction.type === "outcome")
+    .reduce((acc, transaction) => acc + parseInt(transaction.amount), 0);
+
+  const balanceTotal = incomeTotal - outcomeTotal;
+
   return (
     <div className="App">
       <h1>Transaction Tracker</h1>
-
+  
       <h2>Add Income</h2>
       <form onSubmit={(e) => { e.preventDefault(); handleAddIncome(); }}>
         <label>
@@ -771,7 +955,7 @@
         <br />
         <button type="submit">Add Income</button>
       </form>
-
+  
       <h2>Add Outcome</h2>
       <form onSubmit={(e) => { e.preventDefault(); handleAddOutcome(); }}>
         <label>
@@ -791,7 +975,7 @@
         <br />
         <button type="submit">Add Outcome</button>
       </form>
-
+  
       <h2>Filter Transactions</h2>
       <label>
         Type:
@@ -807,8 +991,13 @@
         <input type="text" value={transactionDate} onChange={(e) => setTransactionDate(e.target.value)} />
       </label>
       <br />
+      <label>
+        Search:
+        <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+      </label>
+      <br />
       <button onClick={handleFilterTransactions}>Filter</button>
-
+  
       <h2>Transactions</h2>
       <table>
         <thead>
@@ -820,7 +1009,7 @@
           </tr>
         </thead>
         <tbody>
-          {transactions.map((transaction, index) => (
+          {filteredTransactions.map((transaction, index) => (
             <tr key={index}>
               <td>{transaction.date}</td>
               <td>{transaction.description}</td>
@@ -830,13 +1019,12 @@
           ))}
         </tbody>
       </table>
-
+  
       <h2>Summary</h2>
       <p>Income Total: {incomeTotal}</p>
       <p>Outcome Total: {outcomeTotal}</p>
       <p>Balance: {balanceTotal}</p>
     </div>
   );
-
-            }
-            export default App;  
+          }
+          export default App;  
