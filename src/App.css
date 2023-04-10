@@ -76,3 +76,52 @@ form input[type="submit"]:hover {
     width: 100%;
   }
 }
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Helvetica, sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+table th, table td {
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+table th {
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  font-weight: bold;
+}
+
+table td {
+  border: 1px solid #ddd;
+}
+
+.total {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.type {
+  font-weight: bold;
+}
+
+.transaction {
+  margin-top: 10px;
+}
+
+.description {
+  font-style: italic;
+}

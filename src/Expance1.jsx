@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { PDFDownloadLink, Document, Page, Text, View,StyleSheet } from '@react-pdf/renderer';
+
 import './App.css';
 
 
@@ -10,6 +12,9 @@ function Expance1() {
   const [searchText, setSearchText] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  
+  const [generatePDF, setGeneratePDF] = useState(false);
+
 
   useEffect(() => {
     updateBalances();
@@ -106,6 +111,77 @@ function Expance1() {
       }
     });
   }
+
+const styles = StyleSheet.create({
+  page: {
+    paddingTop: 35,
+    paddingBottom: 65,
+    paddingHorizontal: 35,
+  },
+  section: {
+    margin: 10,
+    padding: 10,
+  },
+  total: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  transaction: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    paddingBottom: 5,
+    marginBottom: 5,
+  },
+  text: {
+    fontSize: 12,
+    textAlign: 'justify',
+    width: '14.28%',
+    marginRight: '2%',
+  },
+  type: {
+    width: '10%',
+  },
+});
+
+const PDFDocument = () => (
+  <Document>
+    <Page style={styles.page}>
+      <View style={styles.section}>
+        <Text style={styles.total}>Total Income: pkr {incomeTotal.toFixed(2)}</Text>
+        <Text style={styles.total}>Total Expenses: pkr {outgoingTotal.toFixed(2)}</Text>
+        <Text style={styles.total}>Remaining Balance: pkr {(incomeTotal - outgoingTotal).toFixed(2)}</Text>
+        <View style={styles.transaction}>
+          <Text style={[styles.text, styles.type]}>Type</Text>
+          <Text style={styles.text}>Name</Text>
+          <Text style={styles.text}>Sub Name</Text>
+          <Text style={styles.text}>Date</Text>
+          <Text style={styles.text}>Quantity</Text>
+          <Text style={styles.text}>Where</Text>
+          <Text style={styles.text}>Cost</Text>
+          <Text style={styles.text}>Description</Text>
+        </View>
+        {transactions.map((transaction, index) => (
+          <View style={styles.transaction} key={index}>
+            <Text style={[styles.text, styles.type]}>{transaction.type}</Text>
+            <Text style={styles.text}>{transaction.name}</Text>
+            <Text style={styles.text}>{transaction.subName}</Text>
+            <Text style={styles.text}>{transaction.date}</Text>
+            <Text style={styles.text}>{transaction.quantity}</Text>
+            <Text style={styles.text}>{transaction.where}</Text>
+            <Text style={styles.text}>{transaction.cost.toFixed(2)}</Text>
+            <Text style={styles.text}>{transaction.description}</Text>
+          </View>
+        ))}
+      </View>
+    </Page>
+  </Document>
+);
 
   
 
@@ -213,6 +289,14 @@ function Expance1() {
       </tbody>
     
       </table>
+<button onClick={() => setGeneratePDF(true)}>Generate PDF</button>
+    {generatePDF && (
+      <PDFDownloadLink document={<PDFDocument />} fileName="expenses.pdf">
+        {({ blob, url, loading, error }) =>
+          loading ? 'Loading document...' : 'Download PDF'
+        }
+      </PDFDownloadLink>
+    )}
     </div>
   );
 
