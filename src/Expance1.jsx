@@ -138,8 +138,13 @@ function Expance1() {
         <option value="expense">Expense</option>
       </select>
       <br />
-      <label htmlFor="name">Name:</label>
-      <input type="text" id="name" />
+      
+	    <label htmlFor="name">Name:</label>
+	  	<select id="name" name="name">
+		 	<option value="Sugar cane">Sugar cane</option>
+			<option value="Rice">Rice</option>
+			<option value="Mango Field">Mango Field</option>
+		</select>
       <br />
       <label htmlFor="subName">Sub Name:</label>
       <input type="text" id="subName" />
@@ -151,7 +156,11 @@ function Expance1() {
       <input type="text" id="quantity" />
       <br />
       <label htmlFor="where">Where:</label>
-      <input type="text" id="where" />
+		  <select id="where" name="where">
+			<option value="Area A">Area A</option>
+			<option value="Area B">Area B</option>
+			<option value="Area C">Area C</option>
+	  	</select>
       <br />
       <label htmlFor="cost">Cost:</label>
       <input type="number" id="cost" step="0.01" />
