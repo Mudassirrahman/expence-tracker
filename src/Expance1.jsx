@@ -112,6 +112,25 @@ function Expance1() {
  return (
   <div className="App">
     <h1>Expenses Tracker</h1>
+    <table>
+  <tfoot>
+        <tr>
+          <td colSpan="6">Total Income:</td>
+          <td id="income-balance">${incomeTotal.toFixed(2)}</td>
+        </tr>
+        <tr>
+          <td colSpan="6">Total Expenses:</td>
+          <td id="outgoing-balance">${outgoingTotal.toFixed(2)}</td>
+        </tr>
+        <tr>
+          
+
+          <td colSpan="6">Remaining Balance:</td>
+         
+            <td colSpan="2" id="remaining-balance">${(incomeTotal - outgoingTotal).toFixed(2)}</td>
+          </tr>
+        </tfoot>
+    </table>
     <form onSubmit={handleFormSubmit}>
       <label htmlFor="type">Type:</label>
       <select id="type">
@@ -183,23 +202,7 @@ function Expance1() {
           );
         })}
       </tbody>
-      <tfoot>
-        <tr>
-          <td colSpan="6">Total Income:</td>
-          <td id="income-balance">${incomeTotal.toFixed(2)}</td>
-        </tr>
-        <tr>
-          <td colSpan="6">Total Expenses:</td>
-          <td id="outgoing-balance">${outgoingTotal.toFixed(2)}</td>
-        </tr>
-        <tr>
-          
-
-          <td colSpan="6">Remaining Balance:</td>
-         
-            <td colSpan="2" id="remaining-balance">${(incomeTotal - outgoingTotal).toFixed(2)}</td>
-          </tr>
-        </tfoot>
+    
       </table>
     </div>
   );
