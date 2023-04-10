@@ -1,249 +1,78 @@
- .App {
-  font-family: sans-serif;
-  text-align: center;
+/* App container */
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-h1 {
-  margin-top: 2rem;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  margin: 2rem;
-  padding: 2rem;
-  border: 1px solid black;
-  border-radius: 5px;
-}
-
-form > * {
-  margin-bottom: 1rem;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  background-color: dodgerblue;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: deepskyblue;
-}
-
+/* Table styles */
 table {
-  margin: 2rem;
   border-collapse: collapse;
   width: 100%;
 }
 
-table th {
-  padding: 0.5rem;
-  background-color: dodgerblue;
-  color: white;
-  font-weight: bold;
+th, td {
+  padding: 8px;
   text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-table td {
-  padding: 0.5rem;
-  border: 1px solid black;
+th {
+  background-color: #f2f2f2;
 }
 
-.totals {
-  margin: 2rem;
-  padding: 1rem;
-  border: 1px solid black;
-  border-radius: 5px;
+tfoot td {
+  font-weight: bold;
 }
 
-.totals h2 {
-  margin-top: 0;
-}
-
-.totals p {
-  margin: 0.5rem 0;
-}
-
-.filter-form {
+/* Form styles */
+form {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-}
-
-.filter-form select,
-.filter-form input[type='date'] {
-  margin-right: 1rem;
-}
-
-.filter-form button {
-  margin-top: 1rem;
-} 
-
-
-.App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: sans-serif;
-  padding: 20px;
-}
-
-h1 {
-  margin-bottom: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-}
-
-.form-group label {
-  margin-bottom: 5px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="number"],
-.form-group input[type="date"] {
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  font-size: 14px;
-}
-
-.form-group select {
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  font-size: 14px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='4' viewBox='0 0 8 4'%3E%3Cpath fill='%23333' d='M0 0h8L4 4z'/%3E%3C/svg%3E") no-repeat;
-  background-position: right 5px top 50%;
-}
-
-.button-group {
-  display: flex;
-  justify-content: center;
-}
-
-.button-group button {
-  margin: 0 5px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 3px;
-  background-color: #3f51b5;
-  color: #fff;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.3s;
-}
-
-.button-group button:hover {
-  background-color: #303f9f;
-} 
-
-.App {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-h1 {
-  font-size: 36px;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-h2 {
-  font-size: 24px;
-  margin-top: 50px;
-  margin-bottom: 20px;
 }
 
 form label {
-  display: block;
-  margin-bottom: 10px;
+  flex-basis: 100%;
+  margin-bottom: 5px;
 }
 
-form input[type="text"],
-select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
+form select, form input[type="text"], form input[type="date"] {
+  width: 45%;
+  padding: 8px;
   border-radius: 4px;
-  margin-bottom: 20px;
-  font-size: 18px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
-button[type="submit"],
-button {
+form select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath fill='%23000000' d='M.57 0L0 .57 3.43 4 0 4.43.57 5 4 1.57 7.43 5l.57-.57L4.57.43z'/%3E%3C/svg%3E") no-repeat;
+  background-position: calc(100% - 10px) center;
+  background-size: 8px 5px;
+}
+
+form input[type="submit"] {
+  width: 100%;
   background-color: #4CAF50;
   color: white;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 18px;
-  margin-top: 20px;
 }
 
-button[type="submit"]:hover,
-button:hover {
-  background-color: #3e8e41;
+form input[type="submit"]:hover {
+  background-color: #45a049;
 }
 
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 50px;
-}
-
-table th,
-table td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  font-size: 18px;
-}
-
-table th {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.App p {
-  font-size: 20px;
-  margin-top: 30px;
-}
-
-@media only screen and (max-width: 768px) {
-  form input[type="text"],
-  select {
-    font-size: 16px;
+/* Media queries */
+@media screen and (max-width: 768px) {
+  form select, form input[type="text"], form input[type="date"] {
+    width: 100%;
   }
-  
-  table th,
-  table td {
-    font-size: 16px;
-    padding: 8px;
-  }
-  
-  h1 {
-    font-size: 28px;
-  }
-  
-  h2 {
-    font-size: 20px;
-  }
-  
-  .App p {
-    font-size: 16px;
-  }
-} 
+}

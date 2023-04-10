@@ -39,9 +39,9 @@ function Expance1() {
     const incomeBalance = document.querySelector('#income-balance');
     const outgoingBalance = document.querySelector('#outgoing-balance');
     const remainingBalance = document.querySelector('#remaining-balance');
-    incomeBalance.textContent = '$' + incomeTotal.toFixed(2);
-    outgoingBalance.textContent = '$' + outgoingTotal.toFixed(2);
-    remainingBalance.textContent = '$' + (incomeTotal - outgoingTotal).toFixed(2);
+    incomeBalance.textContent = 'pkr: ' + incomeTotal.toFixed(2);
+    outgoingBalance.textContent = 'pkr: ' + outgoingTotal.toFixed(2);
+    remainingBalance.textContent = 'pkr: ' + (incomeTotal - outgoingTotal).toFixed(2);
   }
 
   function handleFormSubmit(e) {
@@ -116,18 +116,18 @@ function Expance1() {
   <tfoot>
         <tr>
           <td colSpan="6">Total Income:</td>
-          <td id="income-balance">${incomeTotal.toFixed(2)}</td>
+          <td id="income-balance">pkr:{incomeTotal.toFixed(2)}</td>
         </tr>
         <tr>
           <td colSpan="6">Total Expenses:</td>
-          <td id="outgoing-balance">${outgoingTotal.toFixed(2)}</td>
+          <td id="outgoing-balance">pkr:{outgoingTotal.toFixed(2)}</td>
         </tr>
         <tr>
           
 
           <td colSpan="6">Remaining Balance:</td>
          
-            <td colSpan="2" id="remaining-balance">${(incomeTotal - outgoingTotal).toFixed(2)}</td>
+            <td colSpan="2" id="remaining-balance">pkr:{(incomeTotal - outgoingTotal).toFixed(2)}</td>
           </tr>
         </tfoot>
     </table>
