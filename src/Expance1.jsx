@@ -289,7 +289,7 @@ const PDFDocument = () => (
       </tbody>
     
       </table>
-<button onClick={() => setGeneratePDF(true)}>Generate PDF</button>
+<button className="pdfbtn" onClick={() => setGeneratePDF(true)}>Generate PDF</button>
     {generatePDF && (
       <PDFDownloadLink document={<PDFDocument />} fileName="expenses.pdf">
         {({ blob, url, loading, error }) =>
