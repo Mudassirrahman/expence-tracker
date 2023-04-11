@@ -7,13 +7,23 @@ import SignIn from './SignIn';
 function App() {
 const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+useEffect(() => {
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  if (isLoggedIn === 'true') {
+    setIsLoggedIn(true);
+  }
+}, []);
+
+
   const handleLogout = () => {
     setIsLoggedIn(false);
   };
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
+const handleLogin = () => {
+  setIsLoggedIn(true);
+  localStorage.setItem('isLoggedIn', true);
+};
+
   
 
   return (
@@ -22,7 +32,7 @@ const [isLoggedIn, setIsLoggedIn] = useState(false);
       {isLoggedIn ? (
         <div>
  <Expance1 />
-          <button class="logoutbtn" onClick={handleLogout}>Logout</button>
+          <button className="logoutbtn" onClick={handleLogout}>Logout</button>
         </div>
       ) : (
         <div>
