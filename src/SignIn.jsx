@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./loginForm.css"
 
-const SignIn = ({ setIsLoggedIn }) => {
+const SignIn = ({ setIsLoggedIn , onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -17,7 +17,7 @@ const SignIn = ({ setIsLoggedIn }) => {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem('user'));
     if (user && user.email === email && user.password === password) {
-      setIsLoggedIn(true);
+      onLogin(true);
     } else {
       alert('Invalid email or password');
     }

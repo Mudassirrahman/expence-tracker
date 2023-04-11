@@ -236,6 +236,15 @@ const PDFDocument = () => (
 			<option value="Area A">Area A</option>
 			<option value="Area B">Area B</option>
 			<option value="Area C">Area C</option>
+			<option value="Area D">Area D</option>
+			<option value="Area E">Area E</option>
+			<option value="Area F">Area F</option>
+			<option value="Area G">Area G</option>
+			<option value="Area H">Area H</option>
+			<option value="Area I">Area I</option>
+			<option value="Area J">Area J</option>
+			<option value="Area K">Area K</option>
+			<option value="Area L">Area L</option>
 	  	</select>
       <br />
       <label htmlFor="cost">Cost:</label>

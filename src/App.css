@@ -61,6 +61,17 @@ form select {
   background-size: 8px 5px;
 }
 
+select {
+  -webkit-column-count: 3; /* Number of columns */
+  -moz-column-count: 3;
+  column-count: 3;
+  -webkit-column-gap: 10px; /* Gap between columns */
+  -moz-column-gap: 10px;
+  column-gap: 10px;
+  width: 200px; /* Set the width to your desired value */
+}
+
+
 form input[type="submit"] {
   width: 100%;
   background-color: #4CAF50;
